@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <com.myrecyclerview.RowItem xmlns:android="http://schemas.android.com/apk/res/android"
-=======
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-<<<<<<< HEAD
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,12 +46,3 @@
         </RelativeLayout>
     </FrameLayout>
 </com.myrecyclerview.RowItem>
-=======
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        tools:text="TextView" />
-</LinearLayout>
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4

@@ -9,11 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-<<<<<<< HEAD
             <option value="$PROJECT_DIR$/customrecyclerviewandadapter" />
-=======
             <option value="$PROJECT_DIR$/myownrecyclerview" />
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

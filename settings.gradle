@@ -1,5 +1,4 @@
-<<<<<<< HEAD
+
 include ':app', ':customrecyclerviewandadapter'
-=======
+
 include ':app', ':myownrecyclerview'
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4

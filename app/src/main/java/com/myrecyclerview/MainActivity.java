@@ -1,6 +1,5 @@
 package com.myrecyclerview;
 
-<<<<<<< HEAD
 import android.content.ClipData;
 import android.graphics.Color;
 import android.os.Handler;
@@ -33,68 +32,29 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private List mList;
 
     private RelativeLayout mRoot;
-=======
-import android.os.Handler;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.myownrecyclerview.EmptyRecyclerView;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
-
-    private EmptyRecyclerView emptyRecyclerView;
-    private MyAdapeter myAdapeter;
-    private List<String> mList;
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-<<<<<<< HEAD
         mRoot = (RelativeLayout) findViewById(R.id.mRoot);
         mList = new ArrayList<>();
 
         myAdapeter = new RecyclerViewAdapter(mList);
-=======
-        mList = new ArrayList<>();
-
-        myAdapeter = new MyAdapeter(mList);
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
 
         emptyRecyclerView = findViewById(R.id.myView);
         emptyRecyclerView.setLinearLayoutLayout(false);
         emptyRecyclerView.setSwipeRefreshListener(this);
-<<<<<<< HEAD
-        emptyRecyclerView.addItemDecoration(new DividerItemDecoration(this, R.drawable.divider));
+//        emptyRecyclerView.addItemDecoration(new DividerItemDecoration(this, R.drawable.divider));
 
         emptyRecyclerView.setAdapter(myAdapeter);
 
-//        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
-//
-//        emptyRecyclerView.setItemTouchHelper(itemTouchHelperCallback);
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new RecyclerItemTouchHelper(0, ItemTouchHelper.RIGHT, this);
+
+        emptyRecyclerView.setItemTouchHelper(itemTouchHelperCallback);
 
 
-=======
-        emptyRecyclerView.setDivider(DividerItemDecoration.VERTICAL);
-
-        emptyRecyclerView.setAdapter(myAdapeter);
-
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
 //        emptyRecyclerView.setSwipeRefreshEnabled(false);
         emptyRecyclerView.setRetryClickListener(new View.OnClickListener() {
             @Override
@@ -116,11 +76,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 @Override
                 public void run() {
                     emptyRecyclerView.setSwipeRefreshing(false);
-<<<<<<< HEAD
                     myAdapeter.updateData(new ArrayList<String>());
-=======
-                    myAdapeter.update(new ArrayList<String>());
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
                 }
             }, 3000);
 
@@ -143,7 +99,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                 @Override
                 public void run() {
 
-<<<<<<< HEAD
                     List<ModelTest> list = new ArrayList<>();
                     for (int i = 0; i < 100; i++) {
 
@@ -155,14 +110,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
                     mList.clear();
                     mList.addAll(list);
                     myAdapeter.updateData(list);
-=======
-                    List<String> list = new ArrayList<>();
-                    for (int i = 0; i < 100; i++) {
-                        list.add("H " + i);
-                    }
-                    emptyRecyclerView.setSwipeRefreshing(false);
-                    myAdapeter.update(list);
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
 
                 }
             }, 3000);
@@ -185,7 +132,6 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     }
 
 
-<<<<<<< HEAD
     @Override
     public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction, int position) {
 
@@ -215,50 +161,5 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             snackbar.show();
         }
 
-=======
-    class MyAdapeter extends RecyclerView.Adapter<MyAdapeter.ViewHolder> {
-
-        private List<String> list;
-
-        public MyAdapeter(List<String> list) {
-            this.list = list;
-        }
-
-        public void update(List<String> mList) {
-            list = new ArrayList<>();
-            list.addAll(mList);
-            notifyDataSetChanged();
-        }
-
-        @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
-
-            String n = list.get(position);
-
-            holder.name.setText(n);
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return list.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-
-            TextView name;
-
-            public ViewHolder(View itemView) {
-                super(itemView);
-                name = (TextView) itemView.findViewById(R.id.name);
-            }
-        }
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
     }
 }

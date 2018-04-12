@@ -2,11 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 27
-<<<<<<< HEAD
     buildToolsVersion "27.0.3"
-=======
     buildToolsVersion "27.0.2"
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
     defaultConfig {
         applicationId "com.myrecyclerview"
         minSdkVersion 15
@@ -31,10 +28,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-<<<<<<< HEAD
+
     compile project(':customrecyclerviewandadapter')
     compile 'com.android.support:design:27.+'
-=======
+
     compile project(':myownrecyclerview')
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
 }

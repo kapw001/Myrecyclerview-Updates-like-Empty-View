@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/Myrecyclerview-Updates-like-Empty-View-master.iml" filepath="$PROJECT_DIR$/Myrecyclerview-Updates-like-Empty-View-master.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/customrecyclerviewandadapter/customrecyclerviewandadapter.iml" filepath="$PROJECT_DIR$/customrecyclerviewandadapter/customrecyclerviewandadapter.iml" />
-=======
-      <module fileurl="file://$PROJECT_DIR$/MyRecyclerViewTest.iml" filepath="$PROJECT_DIR$/MyRecyclerViewTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/myownrecyclerview/myownrecyclerview.iml" filepath="$PROJECT_DIR$/myownrecyclerview/myownrecyclerview.iml" />
->>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
     </modules>
   </component>
 </project>
