@@ -4,10 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:id="@+id/mRoot"
     tools:context="com.myrecyclerview.MainActivity">
 
     <com.customrecyclerview.EmptyRecyclerView
+=======
+    tools:context="com.myrecyclerview.MainActivity">
+
+    <com.myownrecyclerview.EmptyRecyclerView
+>>>>>>> 059d2f55fcd7427f75e89a1884f1f9ab33c8bec4
         android:id="@+id/myView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
