@@ -9,11 +9,18 @@ import commonadapter.ViewLayout;
 public class ModelTest implements ViewLayout {
 
     private String name;
+    private boolean isChecked;
+    private boolean isMaleSelected = true;
 
 
     @Override
     public int getLayoutRes() {
         return R.layout.row;
+    }
+
+    @Override
+    public Object getObject() {
+        return this;
     }
 
     public String getName() {
@@ -22,5 +29,21 @@ public class ModelTest implements ViewLayout {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
+
+    public boolean isMaleSelected() {
+        return isMaleSelected;
+    }
+
+    public void setMaleSelected(boolean maleSelected) {
+        isMaleSelected = maleSelected;
     }
 }

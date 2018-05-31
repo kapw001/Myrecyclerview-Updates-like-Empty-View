@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MyRecyclerView Test</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Fe,male</string>
 </resources>

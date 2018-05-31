@@ -7,4 +7,6 @@ package commonadapter;
 public interface ViewLayout {
 
     int getLayoutRes();
+
+    Object getObject();
 }

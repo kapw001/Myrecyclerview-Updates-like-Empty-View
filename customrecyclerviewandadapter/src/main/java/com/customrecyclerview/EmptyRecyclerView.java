@@ -26,6 +26,7 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -39,6 +40,8 @@ import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
  */
 
 public class EmptyRecyclerView extends FrameLayout {
+
+    private static final String TAG = "EmptyRecyclerView";
 
     private RecyclerView recyclerView;
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -221,12 +224,18 @@ public class EmptyRecyclerView extends FrameLayout {
         swipeRefreshLayout.setOnRefreshListener(swipeRefreshListener);
     }
 
-    public void setLinearLayoutLayout(boolean isHorizontal) {
-        if (isHorizontal) {
-            recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
-        } else {
-            recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
-        }
+    public void setLinearLayoutLayout(LinearLayoutManager layoutManager) {
+
+        if (recyclerView != null)
+            recyclerView.setLayoutManager(layoutManager);
+        else Log.e(TAG, "setLinearLayoutLayout: recylerview not initialized ");
+
+
+//        if (isHorizontal) {
+//            recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false));
+//        } else {
+//            recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+//        }
 
     }
 
@@ -257,7 +266,7 @@ public class EmptyRecyclerView extends FrameLayout {
             RecyclerView.Adapter<?> adapter = recyclerView.getAdapter();
             if (adapter != null) {
                 if (adapter.getItemCount() == 0) {
-                    setErrorMsg("There is no data .....Yooooo ! ");
+                    setErrorMsg(getResources().getString(R.string.nodata));
                 } else {
                     setSuccessfullyLoadedData();
                 }

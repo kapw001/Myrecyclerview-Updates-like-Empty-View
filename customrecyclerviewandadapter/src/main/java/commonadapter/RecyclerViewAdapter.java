@@ -1,9 +1,14 @@
 package commonadapter;
 
+import android.support.annotation.IdRes;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.RadioGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +19,14 @@ import java.util.List;
 
 public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
+
     private List<T> mDataset;
+    private List<T> filteredDataset;
     private OnRecyclerViewItemClickListener<T> onRecyclerViewItemClickListener;
     private OnRecyclerViewLongItemClickListener<T> onItemLongClickListener;
+    private OnRecyclerViewCheckBoxChangeClickListener<T> onChangeLongClickListener;
+    private OnRecyclerViewCheckedChangeListener<T> onCheckedChangeListener;
+
 
     public RecyclerViewAdapter(List<T> measurements) {
         this.mDataset = measurements;
@@ -25,6 +35,7 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
     public void updateData(List<T> mDataset) {
 
         this.mDataset = new ArrayList<>();
+        this.filteredDataset = new ArrayList<>();
         this.mDataset.addAll(mDataset);
         notifyDataSetChanged();
 
@@ -39,6 +50,18 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
     public void setOnItemLongClickListener(OnRecyclerViewLongItemClickListener<T> onItemLongClickListener) {
 
         this.onItemLongClickListener = onItemLongClickListener;
+
+    }
+
+    public void setOnChangeLongClickListener(OnRecyclerViewCheckBoxChangeClickListener<T> onChangeLongClickListener) {
+
+        this.onChangeLongClickListener = onChangeLongClickListener;
+
+    }
+
+    public void setOnCheckedChangeListener(OnRecyclerViewCheckedChangeListener<T> onCheckedChangeListener) {
+
+        this.onCheckedChangeListener = onCheckedChangeListener;
 
     }
 
@@ -60,6 +83,11 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
 
         return position;
     }
+
+    public void setFilterObject(T t) {
+
+    }
+
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
@@ -86,6 +114,30 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
                     return false;
                 }
             });
+        }
+
+        if (onChangeLongClickListener != null) {
+
+            holder.mRow.setOnChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                    onChangeLongClickListener.onChangeListener(buttonView, position, mDataset.get(position), isChecked);
+                }
+            });
+
+        }
+
+        if (onCheckedChangeListener != null) {
+
+            holder.mRow.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+
+                    onCheckedChangeListener.onCheckedChanged(group, checkedId, group, position, mDataset.get(position));
+                }
+            });
+
         }
 
     }
@@ -130,6 +182,17 @@ public class RecyclerViewAdapter<T> extends RecyclerView.Adapter<RecyclerViewAda
 
         void onItemLongClick(View view, T t, int position);
 
+    }
+
+    public interface OnRecyclerViewCheckBoxChangeClickListener<T> {
+
+        void onChangeListener(View view, int position, T t, boolean isChecked);
+
+    }
+
+    public interface OnRecyclerViewCheckedChangeListener<T> {
+
+        void onCheckedChanged(RadioGroup group, @IdRes int checkedId, View view, int position, T t);
     }
 
 }
